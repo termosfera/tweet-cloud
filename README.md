@@ -6,7 +6,7 @@ Simple node.js, socket.io, twitter API test.
 
 Complete with your twitter developer account data:
 
-´´´
+```
 // Personal twitter config
 var config = {
     consumer_key: 'yourConsumerKey',
@@ -14,6 +14,6 @@ var config = {
     access_token_key: 'yourAccessTokenKey',
     access_token_secret: 'yourAccessTokenSecret',
 };
-´´´
+```
 
 
