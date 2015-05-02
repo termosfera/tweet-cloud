@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <style type="text/css">
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Open Sans', sans-serif;
+    }
+    #frame {
+        width: 355px;
+        height: 510px;
+        color: white;
+        padding-left: 30px;
+        background-color: black;
+        opacity: .8;
+        position: absolute;
+        top: 50px;
+        left: 50px;
+    }
+        #intro {
+            width: 300px;
+        }
+            #intro ul li {
+                list-style: none;
+            }
+        #social {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+        }
+            #social a {
+                text-decoration: none;
+            }
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            margin-left: 10px;
+            display: inline-block;
+        }
+        .contact-input {
+            margin-top: 10px;
+            width: 290px;
+            height: 30px;
+            margin-bottom: 10px;
+            color: black;
+            opacity: 1;
+        }
+    #picture {
+        width: 60%;
+        height: 80%;
+        position: fixed;
+        top: 50px;
+        left: 500px;
+        overflow: auto;
+        overflow-x: hidden;
+        overflow-y: hidden;
+    }
+    /* Blue font letter */    
+    .enfasis {
+        font-size: 20px;
+        color: rgba(28, 162, 202, 1);
+    }
+    /* Tweets style */
+    .tweet {
+        width: 300px;
+        padding: 10px;
+        margin: 15px;
+        color: white;
+        background-color: black;
+        opacity: .8;
+    }
+    /* Background */
+    #bg {
+      position: fixed; 
+      top: 0; 
+      left: 0; 
+	
+      /* Preserve aspet ratio */
+      min-width: 100%;
+      min-height: 100%;
+    }
+    </style>
+</head>
+<body>
+    <img src="images/bg.jpg" id="bg" alt="">
+
+    <div id="frame">
+        <img href=""/>
+        <div id="intro">
+            <span class="enfasis"><p>Juan Andres Moreno Schrott</p></span>
+            <p>
+                Web developer, passionate about open source software, networks
+                and electronics.
+                Having fun.
+            </p>
+            <hr />
+            <p>
+                This is just a very simple experiment to play with:
+                <ul>
+                    <li>Node.js + Socket.io + Express Framework</li>
+                    <li>Windows Azure Cloud</li>
+                    <li>Twitter API</li>
+                </ul>
+            </p>
+            <hr />
+        </div>
+        <div id="contact">
+        
+        </div>
+        <div id="social">
+            <a href="https://twitter.com/JuanMorSchrott">
+                <img class="social-icon no-translucent" src="./images/twitter.png">
+            </a>
+            <a href="https://www.linkedin.com/profile/view?id=160350185&trk=nav_responsive_tab_profile">
+                <img class="social-icon no-translucent" src="./images/linkedin.png">
+            </a>
+            <a href="https://github.com/termosfera">
+                <img class="social-icon no-translucent" src="./images/github.png">
+            </a>
+        </div>
+    </div>
+
+    <div id="picture"></div>
+    
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://cdn.socket.io/socket.io-1.3.5.js"></script>
+    <script>
+
+        $picture = $("#picture");
+
+        var ww = $(window).width();
+        var wh = $(window).height();
+
+        var socket = io();
+        socket.on("tweet", function (data) {
+            var posx = Math.round(Math.random() * ww) - 500;
+            var posy = Math.round(Math.random() * wh) - 400;
+            var $tweet = $("<p class='tweet'>" + data.text + "</p>")
+                .css("position", "absolute")
+                .css("top", posy + "px")
+                .css("left", posx + "px");
+            $picture.append($tweet);
+        });
+
+        setInterval(function () {
+            $picture.empty();
+        }, 5000);
+    </script>
+</body>
+</html>
