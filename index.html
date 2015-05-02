@@ -49,7 +49,7 @@
             opacity: 1;
         }
     #picture {
-        width: 60%;
+        width: 70%;
         height: 80%;
         position: fixed;
         top: 50px;
@@ -68,6 +68,7 @@
         width: 300px;
         padding: 10px;
         margin: 15px;
+        clear: both;
         color: white;
         background-color: black;
         opacity: .8;
@@ -136,8 +137,8 @@
 
         var socket = io();
         socket.on("tweet", function (data) {
-            var posx = Math.round(Math.random() * ww) - 500;
-            var posy = Math.round(Math.random() * wh) - 400;
+            var posx = Math.round(Math.random() * ww);
+            var posy = Math.round(Math.random() * wh);
             var $tweet = $("<p class='tweet'>" + data.text + "</p>")
                 .css("position", "absolute")
                 .css("top", posy + "px")
@@ -147,7 +148,7 @@
 
         setInterval(function () {
             $picture.empty();
-        }, 5000);
+        }, 6000);
     </script>
 </body>
 </html>
