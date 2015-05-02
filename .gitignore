@@ -4,8 +4,6 @@ Web.config
 bin/
 node_modules/
 obj/
-package.json
-server.js
 tweet-cloud - FTP.pubxml
 tweet-cloud - FTP.pubxml.user
 tweet-cloud - Web Deploy.pubxml
