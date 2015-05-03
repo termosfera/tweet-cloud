@@ -47,5 +47,5 @@ app.use(function (req, res, next) {
 });
 
 http.listen(port, function () {
-    console.log('listening on *:3000');
+    console.log('listening on *:' + process.env.PORT);
 });

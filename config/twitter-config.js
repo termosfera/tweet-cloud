@@ -1,9 +1,9 @@
 ﻿// Personal twitter config
 var config = {
-    consumer_key: 'yourConsumerKey',
-    consumer_secret: 'yourConsumerSecret',
-    access_token_key: 'yourAccessTokenKey',
-    access_token_secret: 'yourAccessTokenSecret',
+    consumer_key: '',
+    consumer_secret: '',
+    access_token_key: '',
+    access_token_secret: '',
 };
 
 module.exports = config;
